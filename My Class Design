@@ -1,0 +1,61 @@
+# Base class
+class Superhero:
+    def __init__(self, name, power, city):
+        self.name = name
+        self.power = power
+        self.city = city
+        self.energy = 100   # default energy level
+
+    def introduce(self):
+        print(f"I am {self.name}, protector of {self.city}!")
+        print(f"My special power is: {self.power}")
+
+    def fight(self, villain):
+        if self.energy > 20:
+            print(f"{self.name} fights {villain} using {self.power}! 💥")
+            self.energy -= 20
+        else:
+            print(f"{self.name} is too tired to fight... 😴")
+
+    def recharge(self):
+        self.energy = 100
+        print(f"{self.name} has rested and is back to full energy!")
+
+
+# Subclass
+class Speedster(Superhero):
+    def __init__(self, name, city, top_speed):
+        # call parent constructor
+        super().__init__(name, "Super Speed", city)
+        self.top_speed = top_speed
+
+    # overriding (polymorphism)
+    def fight(self, villain):
+        if self.energy > 15:
+            print(f"{self.name} dashes at {villain} at {self.top_speed} km/h! ⚡")
+            self.energy -= 15
+        else:
+            print(f"{self.name} needs to recover before running again!")
+
+    # unique method for Speedster
+    def time_travel(self):
+        if self.energy > 50:
+            print(f"{self.name} runs so fast that time bends! ⏳")
+            self.energy -= 50
+        else:
+            print(f"{self.name} doesn’t have enough energy to time travel.")
+
+
+# Example usage
+hero1 = Superhero("Shadow Knight", "Martial Arts", "Gotham")
+hero2 = Speedster("Flashfire", "Central City", 800)
+
+hero1.introduce()
+hero1.fight("Joker")
+hero1.recharge()
+
+print("\n---\n")
+
+hero2.introduce()
+hero2.fight("Reverse Speedster")
+hero2.time_travel()
