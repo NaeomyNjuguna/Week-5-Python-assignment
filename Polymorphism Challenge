@@ -1,0 +1,32 @@
+class Vehicle:
+    def move(self):
+        # Base method (acts like a placeholder)
+        print("This vehicle moves in some way.")
+
+
+class Car(Vehicle):
+    def move(self):
+        print("The car is zooming along the highway 🚗")
+
+
+class Plane(Vehicle):
+    def move(self):
+        print("The plane is soaring through the clouds ✈️")
+
+
+class Boat(Vehicle):
+    def move(self):
+        print("The boat is gliding across the water ⛵")
+
+
+class Bicycle(Vehicle):
+    def move(self):
+        print("The bicycle is rolling down the path 🚴")
+
+
+# create a list of different vehicles
+fleet = [Car(), Plane(), Boat(), Bicycle()]
+
+print("Vehicle Demonstration:\n")
+for item in fleet:
+    item.move()
